@@ -1,0 +1,405 @@
+/* Fliploop — shared stylesheet for the legal and support pages. */
+
+:root {
+  --bg: #FFFFFF;
+  --text: #0D0D0F;
+  --secondary: #6B6B73;
+  --accent: #00A862;
+  --rule: #E6E6EA;
+  --surface: #F6F6F7;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --text: #F4F4F5;
+    --secondary: #A0A0A8;
+    --accent: #2FD98B;
+    --rule: #26262B;
+    --surface: #111113;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Top navigation */
+
+.site-header {
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+}
+
+.nav .sep {
+  color: var(--secondary);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Links — the only place the accent colour appears */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Content */
+
+main {
+  padding-top: 40px;
+  padding-bottom: 56px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 44px 0 10px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 28px 0 6px;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 16px;
+}
+
+ul,
+ol {
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.meta,
+.muted {
+  color: var(--secondary);
+}
+
+.meta {
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.lead {
+  font-size: 19px;
+  color: var(--secondary);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 40px 0;
+}
+
+/* Table (privacy policy) */
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+th {
+  font-weight: 600;
+  color: var(--secondary);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* On narrow screens, stack the table rows into cards so nothing scrolls sideways. */
+@media (max-width: 560px) {
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  td {
+    border: 0;
+    padding: 2px 0;
+  }
+
+  td::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--secondary);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 6px;
+  }
+
+  td:first-child::before {
+    margin-top: 0;
+  }
+
+  td:first-child {
+    font-weight: 600;
+  }
+}
+
+/* Contents list on long pages */
+
+.toc {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.toc p {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.toc li {
+  margin-bottom: 2px;
+}
+
+/* Home page */
+
+.hero {
+  padding-top: 24px;
+}
+
+.hero h1 {
+  font-size: 44px;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 32px;
+}
+
+.features li {
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+.features li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.features strong {
+  display: block;
+}
+
+.features span {
+  color: var(--secondary);
+  font-size: 16px;
+}
+
+.cta {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.links li {
+  margin-bottom: 8px;
+}
+
+/* FAQ */
+
+.faq h3 {
+  margin-top: 32px;
+}
+
+.contact {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 24px 0 8px;
+}
+
+.contact p {
+  margin: 0;
+}
+
+.contact p + p {
+  margin-top: 6px;
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-top: 20px;
+  padding-bottom: 32px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  main {
+    padding-top: 28px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 36px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+}
