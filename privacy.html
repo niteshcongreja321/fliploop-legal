@@ -24,7 +24,7 @@
 
   <main class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective September 26, 2026</p>
+    <p class="meta">Effective September 30, 2026</p>
 
     <p>This policy explains what data the Fliploop app collects, why, where it is kept, and the choices you have. Fliploop is published by NK Genesis (“we”, “us”). If you have a question, email <a href="mailto:fliploop.ops@gmail.com">fliploop.ops@gmail.com</a>.</p>
 
@@ -52,7 +52,7 @@
     <ul>
       <li>You sign in with Apple or Google. We get your email address and an account ID from them. We never see a password.</li>
       <li>The business records you enter are stored on your phone and backed up to your own private account, so you can restore them on another device.</li>
-      <li>Photos, video clips and receipt images stay on your phone. We don’t upload them.</li>
+      <li>Photos, video clips and receipt images you attach are backed up to your private account too, so they come back if you reinstall or change phones. Only you can reach them.</li>
       <li>AI features run on your phone using Apple’s on-device model. That data is not sent to us or to any AI provider.</li>
       <li>No ads, no ad tracking, no third-party analytics, and we never sell your data.</li>
       <li>You can export your records or delete your account and all server data from inside the app at any time.</li>
@@ -88,8 +88,8 @@
           </tr>
           <tr>
             <td data-label="Data">Photos, short video clips and receipt images you attach.</td>
-            <td data-label="Why we need it">To show them with your items and expenses.</td>
-            <td data-label="Where">On your device only. Not uploaded to us.</td>
+            <td data-label="Why we need it">To show them with your items and expenses, and to restore them on a new or reinstalled phone.</td>
+            <td data-label="Where">On your device, and backed up to private storage with Cloudflare R2 (Asia-Pacific region). A list of your files is kept in your private Supabase database in Seoul, South Korea.</td>
           </tr>
           <tr>
             <td data-label="Data">Subscription details: your Fliploop account ID, purchase and transaction details from Apple, and basic device and app information (such as app version, OS version and country or App Store storefront).</td>
@@ -107,7 +107,6 @@
 
     <h2 id="on-device">3. What stays on your device</h2>
     <ul>
-      <li><strong>Photos, video clips and receipts.</strong> These are stored only on your phone. If you turn on your phone’s own iCloud or computer backup, they are included in that backup, under Apple’s terms. They are not part of your Fliploop account backup.</li>
       <li><strong>AI features.</strong> The listing writer and reading details from a photo use Apple’s on-device model. The text and images you use with them stay on your phone. They are not sent to us or to any AI provider.</li>
       <li><strong>Notifications.</strong> Reminders are optional. They include a daily reminder, item reminders, and a reminder the day before a free trial ends. They are scheduled on your phone. We don’t run a push notification server.</li>
       <li><strong>Sign-in tokens.</strong> The tokens that keep you signed in are stored in the iOS Keychain.</li>
@@ -138,17 +137,19 @@
       <li><strong>Apple</strong> — Sign in with Apple, App Store payments and subscriptions, and the on-device AI model.</li>
       <li><strong>Google</strong> — Sign in with Google, if you choose it. Used for sign-in only.</li>
       <li><strong>Supabase</strong> — account sign-in (Supabase Auth) and the database that backs up your records. Hosted in the Asia-Pacific region, in Seoul, South Korea.</li>
+      <li><strong>Cloudflare</strong> — Cloudflare R2 stores the backup of the photos, video clips and receipt images you attach. The files are private: each one can only be reached through a short-lived link issued to your signed-in account. Hosted in the Asia-Pacific region.</li>
       <li><strong>RevenueCat</strong> — manages your subscription status. It receives your Fliploop account ID, purchase and transaction details from Apple, and basic device and app information.</li>
     </ul>
     <p>Each provider handles data under its own privacy policy and terms.</p>
 
     <h2 id="transfers">7. International transfers</h2>
-    <p>Our servers are in Seoul, South Korea. If you live somewhere else, your account details and business records will be transferred to and stored in South Korea. Data protection laws there may be different from the laws where you live. Apple, Google and RevenueCat may also process data in other countries. We only share what each provider needs, and data is always encrypted in transit.</p>
+    <p>Our servers are in Seoul, South Korea. If you live somewhere else, your account details and business records will be transferred to and stored in South Korea, and your photos, video clips and receipt images to Cloudflare’s Asia-Pacific region. Data protection laws there may be different from the laws where you live. Apple, Google, Cloudflare and RevenueCat may also process data in other countries. We only share what each provider needs, and data is always encrypted in transit.</p>
 
     <h2 id="security">8. Security</h2>
     <ul>
       <li>All data sent between the app and our servers is encrypted in transit using TLS.</li>
       <li>Every row in the database is protected by row-level security. Only your signed-in account can read or change your records.</li>
+      <li>Your photos, video clips and receipts are stored privately. They are never public, and each file can only be reached through a short-lived link issued to your signed-in account.</li>
       <li>Sign-in tokens are kept in the iOS Keychain on your phone.</li>
       <li>We never handle passwords or payment card details.</li>
     </ul>
@@ -157,7 +158,8 @@
     <h2 id="retention">9. How long we keep data</h2>
     <ul>
       <li>We keep your account details and backed-up records for as long as your account exists.</li>
-      <li>When you delete your account, we delete your account and all your records from our servers.</li>
+      <li>When you delete your account, we delete your account, all your records, and all your photos, video clips and receipts from our servers.</li>
+      <li>When you delete a photo, clip or receipt in the app, its backup copy is deleted too.</li>
       <li>Our hosting provider may keep backups for a limited period under its own retention policy. After that, the data is gone.</li>
       <li>Data on your phone stays there until you erase it in the app, delete your account, or remove the app.</li>
       <li>Apple and RevenueCat keep purchase records under their own policies.</li>
@@ -169,7 +171,7 @@
       <li><strong>Access and export</strong> — get all your records as a CSV file in Settings → Data &amp; privacy → Export.</li>
       <li><strong>Correct</strong> — edit any record at any time.</li>
       <li><strong>Erase records</strong> — remove all items, costs and trips on your device in Settings → Data &amp; privacy.</li>
-      <li><strong>Delete your account</strong> — permanently delete your account and all your data on our servers in Settings → Data &amp; privacy → Delete account.</li>
+      <li><strong>Delete your account</strong> — permanently delete your account and all your data on our servers, including photos, video clips and receipts in Settings → Data &amp; privacy → Delete account.</li>
     </ul>
     <p>You can also email <a href="mailto:fliploop.ops@gmail.com">fliploop.ops@gmail.com</a> to ask for a copy of your data or to have it deleted. We may need to confirm the request comes from you.</p>
     <p>Deleting your account does not cancel an App Store subscription. You can cancel it in your iPhone’s Settings. See <a href="support.html#cancel">how to cancel</a>.</p>
